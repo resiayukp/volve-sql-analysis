@@ -142,8 +142,8 @@ git clone https://github.com/resiayukp/volve-sql-analysis.git
 cd volve-sql-analysis
 pip install -r requirements.txt
 
-python scripts/load\_data.py data/raw/volve\_production\_data.xlsx
-python scripts/run\_sql.py sql/02\_data\_quality.sql
+python scripts/load_data.py data/raw/volve_production_data.xlsx
+python scripts/run_sql.py sql/02_data_quality.sql
 ```
 
 If you change `sql/01\_views.sql`, run `python scripts/refresh\_views.py` to rebuild the views without reloading the data.
@@ -157,19 +157,19 @@ volve-sql-analysis/
 ├── README.md
 ├── requirements.txt
 ├── sql/
-│   ├── 00\_schema.sql
-│   ├── 01\_views.sql
-│   ├── 02\_data\_quality.sql
-│   ├── 03\_production\_kpis.sql
-│   ├── 04\_window\_functions.sql
-│   ├── 05\_decline\_and\_water\_cut.sql
-│   ├── 06\_injection\_vs\_production.sql
-│   └── 07\_power\_bi\_reconciliation.sql
+│   ├── 00_schema.sql
+│   ├── 01_views.sql
+│   ├── 02_data_quality.sql
+│   ├── 03_production_kpis.sql
+│   ├── 04_window_functions.sql
+│   ├── 05_decline_and_water_cut.sql
+│   ├── 06_injection_vs_production.sql
+│   └── 07_power_bi_reconciliation.sql
 ├── scripts/
-│   ├── load\_data.py
-│   ├── run\_sql.py
-│   ├── refresh\_views.py
-│   └── generate\_demo\_data.py
+│   ├── load_data.py
+│   ├── run_sql.py
+│   ├── refresh_views.py
+│   └── generate_demo_data.py
 └── data/
     ├── README.md
     ├── raw/        (real file, git-ignored)
@@ -187,7 +187,7 @@ volve-sql-analysis/
 
 |SQLite (used here)|PostgreSQL|
 |-|-|
-|`substr(date\_prd, 1, 7)` on a text date|`TO\_CHAR(date\_prd, 'YYYY-MM')` or `DATE\_TRUNC('month', date\_prd)`|
+|`substr(date_prd, 1, 7)` on a text date|`TO_CHAR(date_prd, 'YYYY-MM')` or `DATE_TRUNC('month', date_prd)`|
 |`julianday(b) - julianday(a)`|`b::date - a::date`|
 |`TEXT` date column|`DATE` column|
 
