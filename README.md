@@ -3,7 +3,7 @@
 SQL analysis of daily production and injection data from the Volve oil field. It answers the same questions as my [Power BI dashboard](https://github.com/resiayukp/volve-field-production-analytics-dashboard) and checks the dashboard's numbers against the database.
 
 **Tools:** SQL (SQLite, portable to PostgreSQL), Python for loading data.
-**Techniques:** CTEs, window functions (`LAG`, `RANK`, `ROW\_NUMBER`, running and moving aggregates), conditional aggregation, views, data quality checks, reconciliation with a BI report.
+**Techniques:** CTEs, window functions (`LAG`, `RANK`, `ROW_NUMBER`, running and moving aggregates), conditional aggregation, views, data quality checks, reconciliation with a BI report.
 
 ## Key Findings
 
