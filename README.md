@@ -23,12 +23,12 @@ Data: 15,634 daily records from 7 wells, September 2007 to December 2016. Oil pr
 
 |#|Question|File|
 |-|-|-|
-|1|Is the data reliable?|`02\_data\_quality.sql`|
-|2|How is the field performing and which wells matter most?|`03\_production\_kpis.sql`|
-|3|How does each well behave over time and how do wells rank?|`04\_window\_functions.sql`|
-|4|Which wells are declining and where is water cut rising?|`05\_decline\_and\_water\_cut.sql`|
-|5|How does water injection relate to production?|`06\_injection\_vs\_production.sql`|
-|6|Do the SQL totals match the Power BI dashboard?|`07\_power\_bi\_reconciliation.sql`|
+|1|Is the data reliable?|`02_data_quality.sql`|
+|2|How is the field performing and which wells matter most?|`03_production_kpis.sql`|
+|3|How does each well behave over time and how do wells rank?|`04_window_functions.sql`|
+|4|Which wells are declining and where is water cut rising?|`05_decline_and_water_cut.sql`|
+|5|How does water injection relate to production?|`06_injection_vs_production.sql`|
+|6|Do the SQL totals match the Power BI dashboard?|`07_power_bi_reconciliation.sql`|
 
 ## Results
 
@@ -129,11 +129,11 @@ The producer scorecard (`03` query 3.2) adds up to the same 10,037,081 Sm3. Quer
 
 ## Method Notes
 
-* `daily\_production` holds the raw rows. Views `v\_monthly\_well` and `v\_monthly\_field` aggregate them.
-* **Producers and injectors are defined by volume.** A producer is a well that made oil and an injector is a well that recorded injection. The well\_type text is used only in query 3.1 and in the label counts of `07`, because it can change within one month: grouping by month with `MAX(well\_type)` hid whole months of a well converted from injector to producer (F-5 showed one producing month in the monthly queries although it has 129 producing days; with volume-based filters it shows 5, and the 3,250 Sm3 of oil on injector-labelled rows is now counted for F-5 and F-1 C).
+* `daily_production` holds the raw rows. Views `v_monthly_well` and `v_monthly_field` aggregate them.
+* **Producers and injectors are defined by volume.** A producer is a well that made oil and an injector is a well that recorded injection. The well\_type text is used only in query 3.1 and in the label counts of `07`, because it can change within one month: grouping by month with `MAX(well_type)` hid whole months of a well converted from injector to producer (F-5 showed one producing month in the monthly queries although it has 129 producing days; with volume-based filters it shows 5, and the 3,250 Sm3 of oil on injector-labelled rows is now counted for F-5 and F-1 C).
 * **Well type is a label on each row, not on the well.** F-5 and F-1 C appear as both producer and injector, so the 6 producers and 3 injectors counted in `07` are well-type pairs. There are 7 distinct wells, and only F-4 and F-5 recorded injection volume.
 * Water cut = water / (oil + water). Injection-to-liquid ratio = water injected / (oil + water produced) in Sm3, a simple proxy and not a reservoir-condition voidage ratio.
-* Month-over-month change and moving averages run on a continuous monthly calendar (`v\_monthly\_producer\_full`), from each producer's first to its last producing month. A month with no record counts as zero oil and is marked `has\_record = 0`, so a change is never calculated across a gap.
+* Month-over-month change and moving averages run on a continuous monthly calendar (`v_monthly_producer_full`), from each producer's first to its last producing month. A month with no record counts as zero oil and is marked `has_record = 0`, so a change is never calculated across a gap.
 
 ## Quick Start
 
@@ -146,9 +146,9 @@ python scripts/load_data.py data/raw/volve_production_data.xlsx
 python scripts/run_sql.py sql/02_data_quality.sql
 ```
 
-If you change `sql/01\_views.sql`, run `python scripts/refresh\_views.py` to rebuild the views without reloading the data.
+If you change `sql/01_views.sql`, run `python scripts/refresh_views.py` to rebuild the views without reloading the data.
 
-The loader maps the original `DATEPRD` header to `date\_prd`, drops rows without a valid date, and reports how many were dropped. To try the project first, generate synthetic demo data with `python scripts/generate\_demo\_data.py` and load `data/demo/daily\_production\_demo.csv`. Demo numbers are not findings.
+The loader maps the original `DATEPRD` header to `date_prd`, drops rows without a valid date, and reports how many were dropped. To try the project first, generate synthetic demo data with `python scripts/generate_demo_data.py` and load `data/demo/daily_production_demo.csv`. Demo numbers are not findings.
 
 ## Project Structure
 
