@@ -17,7 +17,7 @@ Data: 15,634 daily records from 7 wells, September 2007 to December 2016. Oil pr
 6. **Declining wells.** Five of six producers are at less than 16% of their peak month in their latest producing month (-84% to -99%). F-5 is not classified because it has only 5 producing months (129 producing days); its latest month is 10.6% below its peak.
 7. **Injection.** Only two wells recorded injection volume: F-4 (16.2 million) and F-5 (14.1 million). Total injection was about 1.20 times the produced liquid (oil + water).
 8. **Injection interruptions.** Injection fell by more than 30% versus the previous month in 13 months. The sharpest drop was September 2012 (-88.6%), and injection reached zero in October 2016.
-9. **Reconciliation.** The totals, well counts by label, well counts by volume, average daily oil, and top performer in `07\_power\_bi\_reconciliation.sql` match the Power BI KPI cards exactly. 
+9. **Reconciliation.** The totals, well counts by label, well counts by volume, average daily oil, and top performer in `07_power_bi_reconciliation.sql` match the Power BI KPI cards exactly. 
 
 ## Business Questions
 
